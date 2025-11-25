@@ -116,8 +116,7 @@ function App() {
           color: #666;
         }
 
-        /* USER CARD */
-        .user-card {
+         .user-card {
           margin-top: 25px;
           padding: 25px;
           display: flex;
@@ -186,14 +185,16 @@ function App() {
           </p>
 
           <div className="search-row">
-            <input
-              type="text"
-              name="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="e.g. torvalds, gaearon, octocat"
-              className="search-input"
-            />
+           <input
+  type="text"
+  name="username"
+  value={username}
+  onChange={(e) => setUsername(e.target.value)}
+  onKeyDown={(e) => e.key === "Enter" && fetchUser()}
+  placeholder="e.g. torvalds, gaearon, octocat"
+  className="search-input"
+/>
+
             <button className="search-btn" onClick={fetchUser}>Search</button>
           </div>
 
