@@ -32,7 +32,6 @@ function App() {
 
   return (
     <>
-       
       <style>{`
         body {
           margin: 0;
@@ -198,16 +197,13 @@ function App() {
             <button className="search-btn" onClick={fetchUser}>Search</button>
           </div>
 
-          
           {error && <div className="error-box">{error}</div>}
 
-          
           {!user && !error && (
             <p className="info">No user yet. Try searching for “octocat”.</p>
           )}
 
-           {
-           user && (
+          {user && (
             <div className="user-card">
               <img src={user.avatar_url} alt="avatar" className="avatar" />
 
@@ -225,13 +221,28 @@ function App() {
 
                 <div className="lower-info">
                   <span>📍 {user.location || "Unknown"}</span>
+
                   {user.twitter_username && (
                     <span>🐦 @{user.twitter_username}</span>
                   )}
+
                   {user.blog && (
-                    <a href={user.blog} className="link" target="_blank">🔗 {user.blog}</a>
+                    <a
+                      href={user.blog}
+                      className="link"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      🔗 {user.blog}
+                    </a>
                   )}
-                  <a href={user.html_url} className="link" target="_blank">
+
+                  <a
+                    href={user.html_url}
+                    className="link"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     👁 View on GitHub
                   </a>
                 </div>
